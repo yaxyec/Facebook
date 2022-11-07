@@ -1,0 +1,35 @@
+.stories{
+    @include flex();
+
+    .story {
+        @include flex(space-between,flex-start);
+        flex-direction: column;
+        width: rem(100);
+        height: rem(180);
+        padding: rem(10);
+        margin: unset;
+        border-radius: rem(10);
+        box-shadow: 0 2px 2px #00000020;
+        background-repeat: no-repeat;
+        background-color: #00000040;
+        background-blend-mode: multiply;
+
+        @for $i from 1 through 6 {
+            &.story-#{$i} {
+                background-image: url('https://picsum.photos/id/#{$i * random(25)}/100/180');
+            }
+        }
+
+        img {
+            border: 1px solid $active-color;
+            @include img-round(40)
+        }
+
+        &__username {
+            color: white;
+            font-weight: 500;
+            font-size: .8rem;
+            text-shadow: 1px 1px 2px #000000b8;
+        }
+    }
+}

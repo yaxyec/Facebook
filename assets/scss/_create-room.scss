@@ -1,0 +1,27 @@
+.create-room {
+    @include Component_box(10, 15);
+    @include flex(space-around, center);
+    background-color: white;
+
+    &__button {
+        @include flex(space-between);
+        font-size: rem(18);
+        border: 2px solid #efefef;
+        border-radius: rem(25);
+        padding: rem(5) rem(15);
+
+        span { color: #656565;}
+
+        @for $i from 1 to 10 {
+            &:nth-child(#{$i}) {
+                color: random-rgb();
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    &__image {
+        @include img-round(40)
+    }
+
+}

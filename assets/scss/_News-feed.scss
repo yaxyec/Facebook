@@ -1,0 +1,72 @@
+.News-feed {
+    @include Component_box(10,15);
+    background-color: white;
+    margin-top: rem(25);
+
+    &__header {
+        @include flex(space-between,center);
+
+        > div:nth-child(2) {flex: 1;}
+
+        &__post-userimage  img {
+            @include img-round(40)    
+        }
+
+        &__post-meta {
+            &__name {font-weight: 500;}
+            &__info {
+                @include flex(left,center,5);
+                
+                .privacy {
+
+                }
+                .data {
+
+                }
+            }
+        }
+
+        &__options {
+            font-weight: bold;
+            font-size: 2rem;
+            line-height: 0;
+            position: relative;
+            top: rem(-15);
+        }
+    }
+    &__feed {
+        &__text, &__image {margin-top: $primary-padding;}
+
+        &__text {color: #333;}
+        &__image {
+            border-radius: rem(5);
+        }
+    }
+    &__footer {
+        padding-top: $primary-padding;
+        @include flex(space-between,center);
+
+        &__reactions {
+            font-size: 1.2rem;
+            @for $i from 1 to 4 {
+                i:nth-child(#{$i}) {
+                    color: random-rgb();
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        &__Comments {}
+    }
+    &__comments-box {
+        margin-top: $primary-padding;
+
+        .input-box__text input {
+            @include round-box(32,#efefef);
+            font-size: .8rem;
+        }
+
+        img {
+            @include img-round(30)
+        }
+    }
+}
